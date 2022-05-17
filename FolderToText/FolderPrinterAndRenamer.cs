@@ -312,9 +312,14 @@ namespace FolderToText
                     }
                 }
             }
-
             // Separate each folder output with a new line, so everything doesn't run together
-            txtOutput.AppendText(Environment.NewLine);
+            // Don't append a new line if there are already two prior. This helps with no spamming new lines
+            // when "Exclude Folder Name Headers" are checked and you are recurses through the folders and
+            // those folders are either empty or the user has chosen to hide skipped files
+            if (!txtOutput.Text.EndsWith(Environment.NewLine + Environment.NewLine))
+            {
+                txtOutput.AppendText(Environment.NewLine);
+            }
         }
 
         private bool IncludeFile(string fileName)
