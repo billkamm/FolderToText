@@ -180,7 +180,7 @@ namespace FolderToText
         {
             if (!chkExcludeFolderNameHeaders.Checked)
             {
-                txtOutput.Text += folderPath + ":" + Environment.NewLine;
+                txtOutput.AppendText(folderPath + ":" + Environment.NewLine);
             }
 
             if (!chkNoAlphanumeric.Checked)
@@ -302,7 +302,7 @@ namespace FolderToText
             }
 
             // Separate each folder output with a new line, so everything doesn't run together
-            txtOutput.Text += Environment.NewLine;
+            txtOutput.AppendText(Environment.NewLine);
         }
 
         private bool IncludeFile(string fileName)
@@ -364,22 +364,24 @@ namespace FolderToText
             {
                 if (chkAddQuotes.Checked)
                 {
-                    txtOutput.Text += "\"" + Path.GetFileName(fullFilePath) + "\"" + symbol;
+                    txtOutput.AppendText("\"" + Path.GetFileName(fullFilePath) + "\"" + symbol);
                 }
                 else
                 {
-                    txtOutput.Text += Path.GetFileName(fullFilePath) + symbol;
+                    txtOutput.AppendText(Path.GetFileName(fullFilePath) + symbol);
                 }
             }
 
             if (chkAddQuotes.Checked)
             {
-                txtOutput.Text += "\"" + fileName + "\"" + Environment.NewLine;
+                txtOutput.AppendText("\"" + fileName + "\"" + Environment.NewLine);
             }
             else
             {
-                txtOutput.Text += fileName + Environment.NewLine;
+                txtOutput.AppendText(fileName + Environment.NewLine);
             }
+
+            Application.DoEvents();
         }
 
         private string ChangeCase(string fileName)
