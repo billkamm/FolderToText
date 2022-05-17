@@ -31,6 +31,7 @@
             this.txtSource = new System.Windows.Forms.TextBox();
             this.lblSource = new System.Windows.Forms.Label();
             this.grpOptions = new System.Windows.Forms.GroupBox();
+            this.chkUrlDecodeAndRename = new System.Windows.Forms.CheckBox();
             this.chkNoAlphanumeric = new System.Windows.Forms.CheckBox();
             this.chkExcludeFolderNameHeaders = new System.Windows.Forms.CheckBox();
             this.txtExcludeFilesContaining = new System.Windows.Forms.TextBox();
@@ -101,7 +102,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtSaveExtension = new System.Windows.Forms.TextBox();
             this.lblSaveExtension = new System.Windows.Forms.Label();
-            this.chkUrlDecodeAndRename = new System.Windows.Forms.CheckBox();
+            this.chkHideSkippedFilesInOutput = new System.Windows.Forms.CheckBox();
             this.grpOptions.SuspendLayout();
             this.grpOutput.SuspendLayout();
             this.SuspendLayout();
@@ -176,6 +177,7 @@
             this.grpOptions.Controls.Add(this.chkRemoveEverythingAfter);
             this.grpOptions.Controls.Add(this.txtBeforeToken);
             this.grpOptions.Controls.Add(this.chkRemoveEverythingBefore);
+            this.grpOptions.Controls.Add(this.chkHideSkippedFilesInOutput);
             this.grpOptions.Controls.Add(this.chkRename);
             this.grpOptions.Controls.Add(this.chkExcludeFileExtensions);
             this.grpOptions.Controls.Add(this.chkRecursive);
@@ -185,6 +187,17 @@
             this.grpOptions.TabIndex = 2;
             this.grpOptions.TabStop = false;
             this.grpOptions.Text = "Options";
+            // 
+            // chkUrlDecodeAndRename
+            // 
+            this.chkUrlDecodeAndRename.AutoSize = true;
+            this.chkUrlDecodeAndRename.Location = new System.Drawing.Point(6, 368);
+            this.chkUrlDecodeAndRename.Name = "chkUrlDecodeAndRename";
+            this.chkUrlDecodeAndRename.Size = new System.Drawing.Size(513, 17);
+            this.chkUrlDecodeAndRename.TabIndex = 54;
+            this.chkUrlDecodeAndRename.Text = "URL Decode and Rename (For files downloaded from websites containing URL encoding" +
+    " such as %20)";
+            this.chkUrlDecodeAndRename.UseVisualStyleBackColor = true;
             // 
             // chkNoAlphanumeric
             // 
@@ -681,6 +694,7 @@
             // 
             // btnProcess
             // 
+            this.btnProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnProcess.Location = new System.Drawing.Point(471, 484);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(75, 23);
@@ -749,6 +763,7 @@
             // 
             // chkAutoClear
             // 
+            this.chkAutoClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkAutoClear.AutoSize = true;
             this.chkAutoClear.Checked = true;
             this.chkAutoClear.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -791,6 +806,7 @@
             // 
             // linkLabel1
             // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(106, 489);
             this.linkLabel1.Name = "linkLabel1";
@@ -802,6 +818,7 @@
             // 
             // label10
             // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(13, 489);
             this.label10.Name = "label10";
@@ -811,6 +828,7 @@
             // 
             // txtSaveExtension
             // 
+            this.txtSaveExtension.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSaveExtension.Location = new System.Drawing.Point(1026, 485);
             this.txtSaveExtension.Name = "txtSaveExtension";
             this.txtSaveExtension.Size = new System.Drawing.Size(48, 20);
@@ -818,6 +836,7 @@
             // 
             // lblSaveExtension
             // 
+            this.lblSaveExtension.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSaveExtension.AutoSize = true;
             this.lblSaveExtension.Location = new System.Drawing.Point(916, 489);
             this.lblSaveExtension.Name = "lblSaveExtension";
@@ -825,16 +844,15 @@
             this.lblSaveExtension.TabIndex = 54;
             this.lblSaveExtension.Text = "Extension for Saves:";
             // 
-            // chkUrlDecodeAndRename
+            // chkHideSkippedFilesInOutput
             // 
-            this.chkUrlDecodeAndRename.AutoSize = true;
-            this.chkUrlDecodeAndRename.Location = new System.Drawing.Point(6, 368);
-            this.chkUrlDecodeAndRename.Name = "chkUrlDecodeAndRename";
-            this.chkUrlDecodeAndRename.Size = new System.Drawing.Size(513, 17);
-            this.chkUrlDecodeAndRename.TabIndex = 54;
-            this.chkUrlDecodeAndRename.Text = "URL Decode and Rename (For files downloaded from websites containing URL encoding" +
-    " such as %20)";
-            this.chkUrlDecodeAndRename.UseVisualStyleBackColor = true;
+            this.chkHideSkippedFilesInOutput.AutoSize = true;
+            this.chkHideSkippedFilesInOutput.Location = new System.Drawing.Point(303, 414);
+            this.chkHideSkippedFilesInOutput.Name = "chkHideSkippedFilesInOutput";
+            this.chkHideSkippedFilesInOutput.Size = new System.Drawing.Size(161, 17);
+            this.chkHideSkippedFilesInOutput.TabIndex = 51;
+            this.chkHideSkippedFilesInOutput.Text = "Hide Skipped Files In Output";
+            this.chkHideSkippedFilesInOutput.UseVisualStyleBackColor = true;
             // 
             // FolderPrinterAndRenamer
             // 
@@ -945,6 +963,7 @@
         private System.Windows.Forms.TextBox txtSaveExtension;
         private System.Windows.Forms.Label lblSaveExtension;
         private System.Windows.Forms.CheckBox chkUrlDecodeAndRename;
+        private System.Windows.Forms.CheckBox chkHideSkippedFilesInOutput;
     }
 }
 

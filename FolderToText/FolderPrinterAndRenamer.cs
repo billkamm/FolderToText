@@ -48,6 +48,18 @@ namespace FolderToText
         {
             string sourcePath = txtSource.Text;
 
+            if (String.IsNullOrWhiteSpace(sourcePath) )
+            {
+                MessageBox.Show("Source Folder is required. Please select a valid folder path using the Browse or enter a path manually.", "Source Folder is required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!Directory.Exists(sourcePath))
+            {
+                MessageBox.Show("Could not locate the Source Folder provided.", "Source Folder not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (chkAutoClear.Checked)
             {
                 txtOutput.Text = String.Empty;
@@ -282,7 +294,7 @@ namespace FolderToText
                             File.Move(fullFilePath, newPath);
                             OutputResults(fullFilePath, fileName, RENAME_SYMBOL);
                         }
-                        else
+                        else if (!chkHideSkippedFilesInOutput.Checked)
                         {
                             OutputResults(fullFilePath, fileName, SKIPPED_SYMBOL);
                         }
@@ -293,7 +305,7 @@ namespace FolderToText
                         {
                             OutputResults(fullFilePath, fileName, NO_RENAME_SYMBOL);
                         }
-                        else
+                        else if (!chkHideSkippedFilesInOutput.Checked)
                         {
                             OutputResults(fullFilePath, fileName, SKIPPED_SYMBOL);
                         }
